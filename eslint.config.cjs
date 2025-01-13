@@ -1,4 +1,6 @@
 const nx = require('@nx/eslint-plugin');
+const { plugins } = require('@swc/core');
+
 
 module.exports = [
   ...nx.configs['flat/base'],

@@ -10,18 +10,12 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should render title', () => {
+  it('should render button', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome takiro-frontend'
+    expect(compiled.querySelector('button')?.textContent).toContain(
+      'Hello NX'
     );
-  });
-
-  it(`should have as title 'takiro-frontend'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('takiro-frontend');
   });
 });
