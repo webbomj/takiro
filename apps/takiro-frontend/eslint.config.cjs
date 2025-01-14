@@ -1,10 +1,11 @@
-const nx = require('@nx/eslint-plugin');
+const nxPlugin = require('@nx/eslint-plugin');
 const baseConfig = require('../../eslint.config.cjs');
+const eslintPluginExample = require("../../eslint-custom-rules");
 
 module.exports = [
   ...baseConfig,
-  ...nx.configs['flat/angular'],
-  ...nx.configs['flat/angular-template'],
+  ...nxPlugin.configs['flat/angular'],
+  ...nxPlugin.configs['flat/angular-template'],
   {
     files: ['**/*.ts'],
     rules: {
@@ -29,6 +30,9 @@ module.exports = [
   {
     files: ['**/*.html'],
     // Override or add rules here
-    rules: {},
+    plugins: {"example": eslintPluginExample},
+    rules: {
+      "example/variables-name-length": "error",
+    },
   },
 ];
