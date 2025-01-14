@@ -1,4 +1,6 @@
 const nx = require('@nx/eslint-plugin');
+const { plugins } = require('@swc/core');
+const eslintPluginExample = require("./eslint-custom-rules");
 
 module.exports = [
   ...nx.configs['flat/base'],
@@ -35,6 +37,9 @@ module.exports = [
       '**/*.mjs',
     ],
     // Override or add rules here
-    rules: {},
+    plugins: {"example": eslintPluginExample},
+    rules: {
+      "example/variables-name-length": "error",
+    },
   },
 ];
