@@ -1,5 +1,6 @@
 const nxPlugin = require('@nx/eslint-plugin');
 const baseConfig = require('../../eslint.config.cjs');
+const eslintPluginExample = require("../../eslint-custom-rules");
 
 module.exports = [
   ...baseConfig,
@@ -29,6 +30,9 @@ module.exports = [
   {
     files: ['**/*.html'],
     // Override or add rules here
-    rules: {},
+    plugins: {"example": eslintPluginExample},
+    rules: {
+      "example/variables-name-length": "error",
+    },
   },
 ];
