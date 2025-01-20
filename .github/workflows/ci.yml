@@ -35,6 +35,18 @@ jobs:
       - run: npx playwright install
       - uses: nrwl/nx-set-shas@v4
 
+      - name: Build Storybook
+        run: npx nx run takiro-frontend:build-storybook:ci
+
+      - name: Serve Storybook
+        run: npx nx run takiro-frontend:static-storybook:ci &
+
+      - name: Wait for Storybook to be available
+        run: npx wait-on http://localhost:4400
+
+      - name: Run Storybook tests
+        run: npx nx run takiro-frontend:test-storybook
+
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
       # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
