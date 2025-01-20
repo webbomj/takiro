@@ -35,6 +35,9 @@ jobs:
       - run: npx playwright install
       - uses: nrwl/nx-set-shas@v4
 
+      - name: Rest NX
+        run: npx nx reset
+
       - name: Build Storybook
         run: npx nx run takiro-frontend:build-storybook:ci
 
