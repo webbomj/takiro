@@ -42,7 +42,7 @@ jobs:
         run: npx nx run takiro-frontend:static-storybook:ci &
 
       - name: Wait for Storybook to be available
-        run: npx wait-on http://localhost:4400
+        run: npx wait-on http://localhost:4200
 
       - name: Run Storybook tests
         run: npx nx run takiro-frontend:test-storybook
