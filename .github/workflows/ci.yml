@@ -36,6 +36,9 @@ jobs:
 
       - run: npx playwright install
 
+      - name: Очистка кеша Nx
+        run: npx nx reset
+
       - name: Build Storybook
         run: npx nx run takiro-frontend:build-storybook:ci
 
