@@ -69,7 +69,7 @@
       "cache": true,
       "inputs": ["default", "^production"],
       "dependsOn": [
-        "^build-storybook"]   }
+        "^static-storybook"]   }
   },
   "plugins": [
     {

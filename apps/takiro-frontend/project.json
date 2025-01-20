@@ -119,8 +119,7 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "test-storybook -c apps/takiro-frontend/.storybook --url=http://localhost:4200"
-      },
-      "dependsOn": ["static-storybook"]
+      }
     },
     "static-storybook": {
       "executor": "@nx/web:file-server",
