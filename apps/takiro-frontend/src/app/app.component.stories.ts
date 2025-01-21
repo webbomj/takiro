@@ -18,6 +18,6 @@ export const Heading: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/app works!/gi)).toBeTruthy();
+    expect(canvas.getByText(/Hello NX/gi)).toBeTruthy();
   },
 };
