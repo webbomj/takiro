@@ -2,7 +2,9 @@
   "name": "@webbomj/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "prepare": "husky install"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~19.0.0",
@@ -28,6 +30,8 @@
     "@angular/cli": "~19.0.0",
     "@angular/compiler-cli": "~19.0.0",
     "@angular/language-service": "~19.0.0",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.8.0",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
@@ -63,10 +67,12 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-cypress": "^3.5.0",
     "eslint-plugin-variables-name-length": "file:eslint-custom-rules",
+    "husky": "^8.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-environment-node": "^29.7.0",
     "jest-preset-angular": "~14.4.0",
+    "lint-staged": "^15.4.1",
     "nx": "20.3.1",
     "prettier": "^2.6.2",
     "storybook": "^8.4.6",
@@ -76,5 +82,17 @@
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.13.0",
     "webpack-cli": "^5.1.4"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "nx affected:lint --fix --files",
+      "nx affected:test --files"
+    ],
+    "*": [
+      "npx nx format:write --files"
+    ],
+    "*.scss": [
+      "npx stylelint --fix"
+    ]
   }
 }
